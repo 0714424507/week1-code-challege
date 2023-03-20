@@ -6,7 +6,7 @@
 
 */
 //question 1
-/*
+
 var input=prompt("what is your grade") 
 validateInput(input)
 
@@ -32,7 +32,7 @@ function displayGrade(grade){
     else {
         alert("your grade is an E ")
     }
-}*/
+}git add
 
 //question 2
 

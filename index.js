@@ -7,6 +7,7 @@
 */
 //question 1
 
+
 var input=prompt("what is your grade") 
 validateInput(input)
 
@@ -32,9 +33,35 @@ function displayGrade(grade){
     else {
         alert("your grade is an E ")
     }
-}git add
+}
 
 //question 2
+/*1.ask the user for inputs
+2.the inputs are the speed of a car*/
+var input0 = prompt("what is your speed")
+var speedInput = parseInt(input0)
+var speed=calculateSpeed(speedInput)
+console.log(speed)
+ function calculateSpeed(speed){
+  if (speed<70){
+    alert("OK")
+  }else {
+    console.log("speed: " , speed)
+    var overLimit=speed-70;
+
+    console.log("overLimit " , overLimit)
+    var points=overLimit / 5;
+    
+    if(points<12){
+      console.log("points "  ,points)
+      alert ("your total demerit points : "+ points)
+
+    }else {
+      alert("license suspended")}
+  }
+ }
+
+
 
 //QUESTION 3
 /*1.ask the user for inputs
@@ -108,4 +135,54 @@ function calculateNhifDeductions(grossSalary) {
   } else {
     return 400;
   }
+}
+
+//Function to calculate nssf
+var nssf  = calculateNssfDeductions(grossSal);
+console.log("NSSF ; ", nssf);
+function calculateNssfDeductions(grossSal){
+  var taxrate=0.06; 
+  var nssf=taxrate  * grossSal;
+    return nssf;
+
+
+}
+
+//Function to calculate the tax rate
+/*1.calculate the taxable income
+2.come up with the logic using the diffrent tax brackets
+*/
+var taxable =calculateTaxableIncome(grossSal, nssf,nhif)
+console.log("taxableIncome ; ", taxable)
+function calculateTaxableIncome(grossSal, nssf ,nhif)
+{
+  var taxable=grossSal - nssf -nhif;
+  return taxable;
+}
+
+//Function to calculate the taxes
+/*1.calculate the taxes charged.
+2.classify the tax brackets.*/
+var tax=calculateTheTaxes(taxable )
+console.log("tax ; ", tax)
+function calculateTheTaxes( taxable){
+  var totaltax;
+  if (taxable<=24000 ){ 
+totaltax=taxable*0.1;
+return totaltax;
+  }else if (taxable>24000 && taxable<=32333){
+    totaltax=taxable * 0.25;
+    return totaltax;
+  }else if (taxable>=32333){
+    totaltax=taxable * 0.3;
+    return totaltax;
+  }
+}
+
+//FUnction to calculate payee
+var payee=calculatePayee(taxable, tax)
+console.log("payee " , payee)
+function calculatePayee(taxable, tax){
+  var payee=taxable-tax;
+  return payee
 }
